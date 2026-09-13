@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haqnawazrehan11.github.io/Word-Counter-/sitemap.xml
