@@ -3,9 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Free Word Counter Online</title>
- <meta name="google-site-verification" content="DoQpr4WEetHgRDf3uqguqwW35IOb0yzSQnP5QWv1jTw" /> content="Free online word counter. Count words, characters, sentences and paragraphs instantly.">
+
+  <meta name="description" content="Free online word counter to count words, characters, sentences, and paragraphs instantly. Simple, fast, and easy to use.">
+
+  <meta name="google-site-verification" content="DoQpr4WEetHgRDf3uqguqwW35IOb0yzSQnP5QWv1jTw">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://haqnawazrehan11.github.io/Word-Counter-/">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f4f7fb;
@@ -17,33 +30,40 @@
     .container {
       max-width: 800px;
       margin: auto;
-      background: white;
+      background: #ffffff;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      font-size: 32px;
     }
 
     .intro {
       text-align: center;
       color: #666;
-      margin-bottom: 25px;
+      margin: 0 0 25px;
+      line-height: 1.6;
     }
 
     textarea {
       width: 100%;
       height: 300px;
       padding: 15px;
-      box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 8px;
       resize: vertical;
       font-size: 16px;
       line-height: 1.6;
+      font-family: Arial, sans-serif;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #555;
     }
 
     .stats {
@@ -55,7 +75,7 @@
 
     .stat {
       background: #f1f5f9;
-      padding: 18px;
+      padding: 18px 10px;
       text-align: center;
       border-radius: 8px;
     }
@@ -64,6 +84,7 @@
       font-size: 26px;
       font-weight: bold;
       display: block;
+      margin-bottom: 5px;
     }
 
     .label {
@@ -79,10 +100,50 @@
       cursor: pointer;
       font-size: 16px;
       background: #222;
-      color: white;
+      color: #fff;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    button:focus {
+      outline: 2px solid #555;
+      outline-offset: 2px;
+    }
+
+    .info {
+      margin-top: 30px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .info h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      margin-bottom: 12px;
     }
 
     @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .container {
+        padding: 20px 15px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      textarea {
+        height: 250px;
+      }
+
       .stats {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -92,73 +153,101 @@
 
 <body>
 
-<div class="container">
-  <h1>Free Word Counter</h1>
+  <main class="container">
 
-  <p class="intro">
-    Count words, characters, sentences and paragraphs instantly.
-  </p>
+    <h1>Free Word Counter Online</h1>
 
-  <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+    <p class="intro">
+      Count words, characters, sentences, and paragraphs instantly with this free online word counter.
+    </p>
 
-  <div class="stats">
-    <div class="stat">
-      <span class="number" id="wordCount">0</span>
-      <span class="label">Words</span>
+    <textarea
+      id="textInput"
+      aria-label="Enter text to count words and characters"
+      placeholder="Type or paste your text here..."
+    ></textarea>
+
+    <div class="stats">
+
+      <div class="stat">
+        <span class="number" id="wordCount">0</span>
+        <span class="label">Words</span>
+      </div>
+
+      <div class="stat">
+        <span class="number" id="charCount">0</span>
+        <span class="label">Characters</span>
+      </div>
+
+      <div class="stat">
+        <span class="number" id="sentenceCount">0</span>
+        <span class="label">Sentences</span>
+      </div>
+
+      <div class="stat">
+        <span class="number" id="paragraphCount">0</span>
+        <span class="label">Paragraphs</span>
+      </div>
+
     </div>
 
-    <div class="stat">
-      <span class="number" id="charCount">0</span>
-      <span class="label">Characters</span>
-    </div>
+    <button type="button" onclick="clearText()">Clear</button>
 
-    <div class="stat">
-      <span class="number" id="sentenceCount">0</span>
-      <span class="label">Sentences</span>
-    </div>
+    <section class="info">
+      <h2>Free Online Word Counter</h2>
 
-    <div class="stat">
-      <span class="number" id="paragraphCount">0</span>
-      <span class="label">Paragraphs</span>
-    </div>
-  </div>
+      <p>
+        Use this free word counter to quickly count the number of words,
+        characters, sentences, and paragraphs in your text. Simply type or
+        paste your content into the text box and the results will update
+        automatically.
+      </p>
 
-  <button onclick="clearText()">Clear</button>
-</div>
+      <p>
+        This tool can be useful for students, writers, bloggers, and anyone
+        who needs to check the length of their text before publishing or
+        submitting it.
+      </p>
+    </section>
 
-<script>
-  const textInput = document.getElementById("textInput");
+  </main>
 
-  textInput.addEventListener("input", updateCounter);
+  <script>
+    const textInput = document.getElementById("textInput");
 
-  function updateCounter() {
-    const text = textInput.value;
+    textInput.addEventListener("input", updateCounter);
 
-    const words = text.trim()
-      ? text.trim().split(/\s+/).length
-      : 0;
+    function updateCounter() {
+      const text = textInput.value;
 
-    const characters = text.length;
+      const words = text.trim()
+        ? text.trim().split(/\s+/).length
+        : 0;
 
-    const sentences = text.trim()
-      ? text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length
-      : 0;
+      const characters = text.length;
 
-    const paragraphs = text.trim()
-      ? text.split(/\n\s*\n/).filter(paragraph => paragraph.trim().length > 0).length
-      : 0;
+      const sentences = text.trim()
+        ? text.split(/[.!?]+/)
+            .filter(sentence => sentence.trim().length > 0).length
+        : 0;
 
-    document.getElementById("wordCount").textContent = words;
-    document.getElementById("charCount").textContent = characters;
-    document.getElementById("sentenceCount").textContent = sentences;
-    document.getElementById("paragraphCount").textContent = paragraphs;
-  }
+      const paragraphs = text.trim()
+        ? text.split(/\n\s*\n/)
+            .filter(paragraph => paragraph.trim().length > 0).length
+        : 0;
 
-  function clearText() {
-    textInput.value = "";
-    updateCounter();
-  }
-</script>
+      document.getElementById("wordCount").textContent = words;
+      document.getElementById("charCount").textContent = characters;
+      document.getElementById("sentenceCount").textContent = sentences;
+      document.getElementById("paragraphCount").textContent = paragraphs;
+    }
+
+    function clearText() {
+      textInput.value = "";
+      updateCounter();
+      textInput.focus();
+    }
+  </script>
 
 </body>
 </html>
